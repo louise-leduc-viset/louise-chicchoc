@@ -1,0 +1,139 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(250,247,244,0.9);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(60,30,30,0.06);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.navbar__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.navbar__logo-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size: 1rem;
+}
+
+.navbar__brand-text {
+  letter-spacing: 0.18em;
+}
+
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 0.9rem;
+}
+
+.navbar__link {
+  position: relative;
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.navbar__link::after {
+  content:'';
+  position:absolute;
+  left:0; bottom:-4px;
+  width:0; height:1px;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+
+.navbar__link:hover {
+  color: var(--text);
+}
+
+.navbar__link:hover::after {
+  width: 100%;
+}
+
+.navbar__actions {
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+.navbar__toggle {
+  display:none;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fff;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:4px;
+}
+
+.navbar__toggle span {
+  width: 14px;
+  height: 1px;
+  background: var(--text);
+}
+
+@media (max-width: 800px) {
+  .navbar__inner {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 12px 0;
+  }
+
+  .navbar__brand {
+    flex: 1 1 auto;
+  }
+
+  .navbar__toggle {
+    display:flex;
+    margin-left: auto;
+  }
+
+  .navbar__nav,
+  .navbar__actions {
+    display: none;
+    width: 100%;
+  }
+
+  .navbar--open .navbar__nav,
+  .navbar--open .navbar__actions {
+    display: flex;
+  }
+
+  .navbar__nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .navbar__actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 8px;
+    padding-bottom: 6px;
+  }
+}
